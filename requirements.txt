@@ -10,6 +10,4 @@ scipy
 joblib
 mysql-connector-python
 openpyxl
-opencv-python
-
-
+opencv-python-headless
