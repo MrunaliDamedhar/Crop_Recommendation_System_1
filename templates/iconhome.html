@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home | Crop Recommendation System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/iconhome.css') }}">
+</head>
+<body>
+
+  <header>
+    <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/035/460/086/small_2x/ai-generated-hands-holding-young-plant-sprout-free-png.png" alt="logo">
+        <span id="site-title" data-translate="siteTitle">Crop Recommendation System</span>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="/" id="nav-home" class="active">Home</a></li>
+        <li><a href="/aboutus" id="nav-about">About</a></li>
+        <li><a href="/service" id="nav-service">Services</a></li>
+        <li><a href="/contact" id="nav-contact">Contact</a></li>
+      </ul>
+
+      <!-- Language Selector -->
+      <select id="language-select">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="mr">मराठी</option>
+      </select>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 id="hero-h1">Welcome to Crop Recommendation System</h1>
+      <p id="hero-p">
+        Empowering farmers with intelligent crop suggestions based on soil, weather, and yield data.
+        A Crop Recommendation System is a tool that helps farmers choose the best crops to grow based 
+        on their specific location and conditions.
+      </p>
+      <a href="/service" class="btn" id="hero-btn">Explore Our Services</a>
+    </div>
+  </section>
+
+  <footer>
+    <p id="footer-text">© 2025 Crop Recommendation System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        siteTitle: " CropRecommendationSystem",
+        navHome: "Home",
+        navAbout: "About",
+        navService: "Services",
+        navContact: "Contact",
+        heroH1: "Welcome to Crop Recommendation System",
+        heroP: "Empowering farmers with intelligent crop suggestions based on soil, weather, and yield data. A Crop Recommendation System is a tool that helps farmers choose the best crops to grow based on their specific location and conditions.",
+        heroBtn: "Explore Our Services",
+        footerText: "© 2025 Crop Recommendation System. All rights reserved."
+      },
+      hi: {
+        siteTitle: "फसल सिफारिश प्रणाली",
+        navHome: "होम",
+        navAbout: "हमारे बारे में",
+        navService: "सेवाएँ",
+        navContact: "संपर्क करें",
+        heroH1: "फसल सिफारिश प्रणाली में आपका स्वागत है",
+        heroP: "किसानों को मिट्टी, मौसम और उपज डेटा के आधार पर बुद्धिमान फसल सुझाव प्रदान करना। एक फसल सिफारिश प्रणाली एक उपकरण है जो किसानों को उनकी विशिष्ट स्थिति और परिस्थितियों के आधार पर सर्वोत्तम फसल चुनने में मदद करता है।",
+        heroBtn: "हमारी सेवाओं का पता लगाएँ",
+        footerText: "© 2025 फसल सिफारिश प्रणाली | सर्व अधिकार सुरक्षित"
+      },
+      mr: {
+        siteTitle: "पिक शिफारस प्रणाली",
+        navHome: "होम",
+        navAbout: "बद्दल",
+        navService: "सेवा",
+        navContact: "संपर्क",
+        heroH1: "पिक शिफारस प्रणालीमध्ये आपले स्वागत आहे",
+        heroP: "शेतकऱ्यांना माती, हवामान आणि उत्पादन डेटावर आधारित बुद्धिमान पीक सूचना प्रदान करणे. पिक शिफारस प्रणाली एक साधन आहे जे शेतकऱ्यांना त्यांच्या विशिष्ट परिस्थिती आणि ठिकाणानुसार सर्वोत्तम पीक निवडण्यास मदत करते.",
+        heroBtn: "आमच्या सेवा एक्सप्लोर करा",
+        footerText: "© 2025 पिक शिफारस प्रणाली | सर्व हक्क राखीव"
+      }
+    };
+
+    function changeLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('site-title').innerText = t.siteTitle;
+      document.getElementById('nav-home').innerText = t.navHome;
+      document.getElementById('nav-about').innerText = t.navAbout;
+      document.getElementById('nav-service').innerText = t.navService;
+      document.getElementById('nav-contact').innerText = t.navContact;
+      document.getElementById('hero-h1').innerText = t.heroH1;
+      document.getElementById('hero-p').innerText = t.heroP;
+      document.getElementById('hero-btn').innerText = t.heroBtn;
+      document.getElementById('footer-text').innerText = t.footerText;
+
+      localStorage.setItem('siteLanguage', lang);
+    }
+
+    const languageSelector = document.getElementById('language-select');
+    languageSelector.addEventListener('change', function () {
+      changeLanguage(this.value);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('siteLanguage') || 'en';
+      languageSelector.value = savedLang;
+      changeLanguage(savedLang);
+    });
+  </script>
+
+</body>
+
+
+</html>

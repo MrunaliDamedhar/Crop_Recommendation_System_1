@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-translate="siteTitle">Crop Recommendation System </title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== General Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #d0f0c0, #f0fff0);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .nav-logo span {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #228B22;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #228B22;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #0b5d17;
+    }
+
+    #language-select {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #228B22;
+      background: white;
+      color: #228B22;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    /* ===== Main Content ===== */
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      padding: 50px 30px;
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .glass-box h1 {
+      color: #228B22;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+
+    .glass-box p a.back-home-btn {
+      text-decoration: none;
+      color: #fff;
+      background-color: #228B22;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .glass-box p a.back-home-btn:hover {
+      background-color: #0b5d17;
+      color: #fff;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #228B22;
+      font-weight: 500;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .glass-box {
+        padding: 40px 20px;
+      }
+
+      .glass-box h1 {
+        font-size: 1.5rem;
+      }
+
+      .glass-box p a.back-home-btn {
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/035/460/086/small_2x/ai-generated-hands-holding-young-plant-sprout-free-png.png" alt="logo">
+        <span id="site-title" data-translate="siteTitle">Crop Recommendation System</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}" data-translate="navHome">Home</a></li>
+        <li><a href="{{ url_for('aboutus') }}" data-translate="navAbout">About</a></li>
+        <li><a href="{{ url_for('service') }}" data-translate="navService">Services</a></li>
+        <li><a href="{{ url_for('contact') }}" data-translate="navContact">Contact</a></li>
+      </ul>
+      <select id="language-select">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="mr">मराठी</option>
+      </select>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="glass-box">
+      <h1 data-translate="successMessage">Thank you! Your message has been sent.</h1>
+      <p><a href="{{ url_for('home') }}" class="back-home-btn" data-translate="backHome">Back to Home</a></p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer data-translate="footerText">
+    © 2025 Crop Recommendation System. All rights reserved.
+  </footer>
+
+  <!-- Translation Script -->
+  <script>
+    const translations = {
+      en: {
+        siteTitle: "Crop Recommendation System - Message Sent",
+        navHome: "Home",
+        navAbout: "About",
+        navService: "Services",
+        navContact: "Contact",
+        footerText: "© 2025 Crop Recommendation System. All rights reserved.",
+        successMessage: "Thank you! Your message has been sent.",
+        backHome: "Back to Home"
+      },
+      hi: {
+        siteTitle: "फसल सिफारिश प्रणाली - संदेश भेजा गया",
+        navHome: "होम",
+        navAbout: "हमारे बारे में",
+        navService: "सेवाएँ",
+        navContact: "संपर्क करें",
+        footerText: "© 2025 फसल सिफारिश प्रणाली | सर्व अधिकार सुरक्षित",
+        successMessage: "धन्यवाद! आपका संदेश भेज दिया गया है।",
+        backHome: "मुख्य पृष्ठ पर वापस जाएँ"
+      },
+      mr: {
+        siteTitle: "पिक शिफारस प्रणाली - संदेश पाठवला गेला",
+        navHome: "मुख्यपृष्ठ",
+        navAbout: "बद्दल",
+        navService: "सेवा",
+        navContact: "संपर्क",
+        footerText: "© 2025 पिक शिफारस प्रणाली. सर्व हक्क राखीव.",
+        successMessage: "धन्यवाद! तुमचा संदेश पाठवला गेला आहे.",
+        backHome: "मुख्यपृष्ठावर परत जा"
+      }
+    };
+
+    function changeLanguage(lang) {
+      const t = translations[lang];
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if(el.tagName === 'INPUT' || el.tagName === 'BUTTON') {
+          el.value = t[key] || el.value;
+        } else {
+          el.innerText = t[key] || el.innerText;
+        }
+      });
+      document.title = t.siteTitle;
+      localStorage.setItem('siteLanguage', lang);
+    }
+
+    // Initialize language on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('siteLanguage') || 'en';
+      document.getElementById('language-select').value = savedLang;
+      changeLanguage(savedLang);
+    });
+
+    // Language selector
+    document.getElementById('language-select').addEventListener('change', function() {
+      changeLanguage(this.value);
+    });
+  </script>
+
+</body>
+</html>

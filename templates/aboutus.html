@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Crop Recommendation System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/aboutus.css') }}">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/035/460/086/small_2x/ai-generated-hands-holding-young-plant-sprout-free-png.png" alt="logo">
+        <span id="site-title" data-translate="siteTitle">Crop Recommendation System</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}" id="nav-home">Home</a></li>
+        <li><a href="{{ url_for('aboutus') }}" id="nav-about" class="active">About</a></li>
+        <li><a href="{{ url_for('service') }}" id="nav-service">Services</a></li>
+        <li><a href="{{ url_for('contact') }}" id="nav-contact">Contact</a></li>
+      </ul>
+      <!-- Language Selector -->
+      <select id="language-select">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="mr">मराठी</option>
+      </select>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="about-section">
+      <div class="content">
+        <h1 id="about-h1">About Us</h1>
+        <p id="about-p1">
+          Our mission is to empower farmers with smart crop suggestions based on soil data, climate, and regional trends.
+          We aim to increase yield and sustainability through data-driven decision-making using cutting-edge machine learning models.
+        </p>
+        <p id="about-p2">
+          Our system analyzes various factors such as soil nutrients, temperature, humidity, and rainfall to recommend the best crops
+          to cultivate in a specific region, ensuring efficiency and productivity for farmers. A Crop Recommendation System uses technology to help farmers choose the best crops for their land by considering factors like soil, weather, and climate. It's like a smart tool that suggests which crops will grow well and produce the most based on what's happening in their field.
+        </p>
+      </div>
+      <img src="https://img.freepik.com/free-photo/environmental-conservation-plant-sustainability_53876-104385.jpg?w=740" alt="Farming Illustration">
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p id="footer-text">© 2025 Crop Recommendation System. All rights reserved.</p>
+  </footer>
+
+  <!-- Language Script -->
+  <script>
+    const translations = {
+      en: {
+        siteTitle: "Crop Recommendation System",
+        navHome: "Home",
+        navAbout: "About",
+        navService: "Services",
+        navContact: "Contact",
+        aboutH1: "About Us",
+        aboutP1: "Our mission is to empower farmers with smart crop suggestions based on soil data, climate, and regional trends. We aim to increase yield and sustainability through data-driven decision-making using cutting-edge machine learning models.",
+        aboutP2: "Our system analyzes various factors such as soil nutrients, temperature, humidity, and rainfall to recommend the best crops to cultivate in a specific region, ensuring efficiency and productivity for farmers. A Crop Recommendation System uses technology to help farmers choose the best crops for their land by considering factors like soil, weather, and climate. It's like a smart tool that suggests which crops will grow well and produce the most based on what's happening in their field.",
+        footerText: "© 2025 Crop Recommendation System. All rights reserved."
+      },
+      hi: {
+        siteTitle: "फसल सिफारिश प्रणाली",
+        navHome: "होम",
+        navAbout: "हमारे बारे में",
+        navService: "सेवाएँ",
+        navContact: "संपर्क करें",
+        aboutH1: "हमारे बारे में",
+        aboutP1: "हमारा मिशन किसानों को मिट्टी के डेटा, मौसम और क्षेत्रीय रुझानों के आधार पर स्मार्ट फसल सुझाव प्रदान करना है। हम अत्याधुनिक मशीन लर्निंग मॉडल का उपयोग करके डेटा-आधारित निर्णय लेने के माध्यम से उपज और स्थिरता बढ़ाने का लक्ष्य रखते हैं।",
+        aboutP2: "हमारी प्रणाली मिट्टी के पोषक तत्वों, तापमान, आर्द्रता और वर्षा जैसे विभिन्न कारकों का विश्लेषण करती है ताकि किसी विशिष्ट क्षेत्र में सर्वोत्तम फसल की सिफारिश की जा सके, जिससे किसानों की उत्पादकता और दक्षता सुनिश्चित हो। एक फसल सिफारिश प्रणाली तकनीक का उपयोग करके किसानों को उनके क्षेत्र के लिए सर्वोत्तम फसल चुनने में मदद करती है।",
+        footerText: "© 2025 फसल सिफारिश प्रणाली | सर्व अधिकार सुरक्षित"
+      },
+      mr: {
+        siteTitle: "पिक शिफारस प्रणाली",
+        navHome: "होम",
+        navAbout: "बद्दल",
+        navService: "सेवा",
+        navContact: "संपर्क",
+        aboutH1: "बद्दल",
+        aboutP1: "आमचे मिशन शेतकऱ्यांना मातीच्या डेटावर, हवामानावर आणि प्रादेशिक प्रवाहावर आधारित स्मार्ट पिक सूचना प्रदान करणे आहे. आम्ही अत्याधुनिक मशीन लर्निंग मॉडेलचा वापर करून डेटा-आधारित निर्णय घेण्याद्वारे उत्पादन आणि शाश्वतता वाढवण्याचा उद्देश ठेवतो.",
+        aboutP2: "आमची प्रणाली मातीतील पोषक तत्त्वे, तापमान, आर्द्रता आणि पर्जन्यमान यासारख्या विविध घटकांचे विश्लेषण करते जेणेकरून विशिष्ट क्षेत्रात सर्वोत्तम पिकांची शिफारस करता येईल, शेतकऱ्यांसाठी कार्यक्षमता आणि उत्पादनक्षमता सुनिश्चित करण्यासाठी. पिक शिफारस प्रणाली तंत्रज्ञानाचा वापर करून शेतकऱ्यांना त्यांच्या जमिनीवर सर्वोत्तम पिक निवडण्यास मदत करते.",
+        footerText: "© 2025 पिक शिफारस प्रणाली | सर्व हक्क राखीव"
+      }
+    };
+
+    function changeLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('site-title').innerText = t.siteTitle;
+      document.getElementById('nav-home').innerText = t.navHome;
+      document.getElementById('nav-about').innerText = t.navAbout;
+      document.getElementById('nav-service').innerText = t.navService;
+      document.getElementById('nav-contact').innerText = t.navContact;
+      document.getElementById('about-h1').innerText = t.aboutH1;
+      document.getElementById('about-p1').innerText = t.aboutP1;
+      document.getElementById('about-p2').innerText = t.aboutP2;
+      document.getElementById('footer-text').innerText = t.footerText;
+      localStorage.setItem('siteLanguage', lang);
+    }
+
+    const languageSelector = document.getElementById('language-select');
+    languageSelector.addEventListener('change', function () { changeLanguage(this.value); });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('siteLanguage') || 'en';
+      languageSelector.value = savedLang;
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

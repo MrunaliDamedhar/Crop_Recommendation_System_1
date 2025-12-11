@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-translate="siteTitle">Crop Recommendation System - Login/Register</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/035/460/086/small_2x/ai-generated-hands-holding-young-plant-sprout-free-png.png" alt="Logo">
+      <span id="site-title" data-translate="siteTitle">Crop Recommendation System</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="{{ url_for('iconhome') }}" data-translate="navHome">Home</a></li>
+      <li><a href="{{ url_for('aboutus') }}" data-translate="navAbout">About</a></li>
+      <li><a href="{{ url_for('service') }}" data-translate="navService">Services</a></li>
+      <li><a href="{{ url_for('contact') }}" data-translate="navContact">Contact</a></li>
+    </ul>
+    <!-- Language Selector -->
+    <select id="language-select">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="mr">मराठी</option>
+    </select>
+  </nav>
+
+  <!-- Login/Register Container -->
+  <main class="container">
+    <section class="form-box">
+      <h2 id="hero-title" data-translate="heroH1">🌾 Crop Recommendation System</h2>
+
+      <div class="toggle-btns">
+        <button type="button" id="loginBtn" class="active" data-translate="loginBtn">Login</button>
+        <button type="button" id="registerBtn" data-translate="registerBtn">Register</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" method="POST" action="{{ url_for('login') }}">
+        <input type="text" name="text" id="loginName" data-translate-placeholder="loginName" placeholder="Full Name" required>
+        <input type="email" name="email" id="loginEmail" data-translate-placeholder="loginEmail" placeholder="Email" required>
+        <input type="password" name="password" id="loginPassword" data-translate-placeholder="loginPassword" placeholder="Password" required>
+        <button type="submit" id="hero-button" data-translate="loginButton">Login</button>
+        <p id="loginErrorMsg" class="error-msg">{{ error }}</p>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" method="POST" action="{{ url_for('register') }}" style="display: none;">
+        <input type="text" name="name" id="registerName" data-translate-placeholder="registerName" placeholder="Full Name" required>
+        <input type="email" name="email" id="registerEmail" data-translate-placeholder="registerEmail" placeholder="Email" required>
+        <input type="password" name="password" id="registerPassword" data-translate-placeholder="registerPassword" placeholder="Password" required>
+        <input type="password" name="confirm_password" id="registerConfirm" data-translate-placeholder="registerConfirm" placeholder="Confirm Password" required>
+        <button type="submit" id="registerButton" data-translate="registerButton">Register</button>
+        <p id="registerErrorMsg" class="error-msg">{{ register_error }}</p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="footer-text" data-translate="footerText">
+    © 2025 Crop Recommendation System. All rights reserved.
+  </footer>
+
+  <!-- Language Translator Script -->
+  <script>
+    const translations = {
+      en: {
+        siteTitle: "Crop Recommendation System - Login/Register",
+        navHome: "Home",
+        navAbout: "About",
+        navService: "Services",
+        navContact: "Contact",
+        heroH1: "🌾 Crop Recommendation System",
+        loginBtn: "Login",
+        registerBtn: "Register",
+        loginName: "Full Name",
+        loginEmail: "Email",
+        loginPassword: "Password",
+        loginButton: "Login",
+        registerName: "Full Name",
+        registerEmail: "Email",
+        registerPassword: "Password",
+        registerConfirm: "Confirm Password",
+        registerButton: "Register",
+        footerText: "© 2025 Crop Recommendation System. All rights reserved."
+      },
+      hi: {
+        siteTitle: "फसल सिफारिश प्रणाली - लॉगिन/रजिस्टर",
+        navHome: "होम",
+        navAbout: "हमारे बारे में",
+        navService: "सेवाएँ",
+        navContact: "संपर्क करें",
+        heroH1: "🌾 फसल सिफारिश प्रणाली",
+        loginBtn: "लॉगिन",
+        registerBtn: "रजिस्टर",
+        loginName: "पूरा नाम",
+        loginEmail: "ईमेल",
+        loginPassword: "पासवर्ड",
+        loginButton: "लॉगिन",
+        registerName: "पूरा नाम",
+        registerEmail: "ईमेल",
+        registerPassword: "पासवर्ड",
+        registerConfirm: "पासवर्ड की पुष्टि करें",
+        registerButton: "रजिस्टर",
+        footerText: "© 2025 फसल सिफारिश प्रणाली | सर्व अधिकार सुरक्षित"
+      },
+      mr: {
+        siteTitle: "पिक शिफारस प्रणाली - लॉगिन/नोंदणी",
+        navHome: "होम",
+        navAbout: "बद्दल",
+        navService: "सेवा",
+        navContact: "संपर्क",
+        heroH1: "🌾 पिक शिफारस प्रणाली",
+        loginBtn: "लॉगिन",
+        registerBtn: "नोंदणी",
+        loginName: "पूर्ण नाव",
+        loginEmail: "ईमेल",
+        loginPassword: "पासवर्ड",
+        loginButton: "लॉगिन",
+        registerName: "पूर्ण नाव",
+        registerEmail: "ईमेल",
+        registerPassword: "पासवर्ड",
+        registerConfirm: "पासवर्डची पुष्टी करा",
+        registerButton: "नोंदणी",
+        footerText: "© 2025 पिक शिफारस प्रणाली. सर्व हक्क राखीव."
+      }
+    };
+
+    function changeLanguage(lang) {
+      const t = translations[lang];
+
+      // Translate elements
+      document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if(t[key]) {
+          if(el.tagName === 'INPUT' && (el.type === 'submit' || el.type === 'button')) el.value = t[key];
+          else el.innerText = t[key];
+        }
+      });
+
+      // Translate placeholders
+      document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-translate-placeholder');
+        if(t[key]) el.placeholder = t[key];
+      });
+
+      // Update document title
+      document.title = t.siteTitle;
+
+      // Save language
+      localStorage.setItem('siteLanguage', lang);
+    }
+
+    // Initialize language
+    function initLanguage() {
+      const savedLang = localStorage.getItem('siteLanguage') || 'en';
+      const languageSelector = document.getElementById('language-select');
+      if(languageSelector) {
+        languageSelector.value = savedLang;
+        languageSelector.addEventListener('change', function() {
+          changeLanguage(this.value);
+        });
+      }
+      changeLanguage(savedLang);
+    }
+
+    document.addEventListener('DOMContentLoaded', initLanguage);
+  </script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
