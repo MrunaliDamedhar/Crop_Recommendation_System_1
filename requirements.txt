@@ -8,9 +8,9 @@ pandas
 scikit-learn==1.0.2
 scipy
 joblib
-mysql-connector-python
 openpyxl
 opencv-python
+
 
 
 
