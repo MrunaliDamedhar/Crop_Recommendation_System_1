@@ -5,9 +5,10 @@ Flask==3.0.3
 gunicorn
 numpy>=2.3.0
 pandas
-scikit-learn>=1.2.2
+scikit-learn>=1.4.2
 scipy>=1.12.0
 joblib
 mysql-connector-python
 openpyxl
 opencv-python
+
